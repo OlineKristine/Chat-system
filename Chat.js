@@ -52,7 +52,6 @@ module.leaveChat = function (user) {
   }
 
 //Write messages
-//We might have to use the EventListener method
 
 // let messages = []
 // function ChatMessage (message, user, date){
@@ -75,6 +74,24 @@ module.postMessage = function (ChatMessage){
   messages.push(ChatMessage)
   console.log('You wrote: ', ChatMessage)
 }
+
+
+//search in messages
+
+let keyword = []
+let results = messages.filter(m => {
+    module.searchMessage = function (searchMessage) {
+      // does this current message match what O'm looking for
+      /* direct keyword:
+        return m.message ==keyword
+      */
+
+        return searchMessage.message.indexOf(keyword) !== -1
+      })
+      console.log('Message results = ', results)
+    }
+
+
 
 return module
 })();
