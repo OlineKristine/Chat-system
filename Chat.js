@@ -6,8 +6,7 @@ A user also needs to be able to leave
 Keep a record of all the messages
 Let users send a message to the chat
 A message need to contain: A message, a send date and an author
-Search within messages
-By content and by author
+Search within messages by content and by author
 Censor messages containing certain words
 Censored should still be saved
 
@@ -55,18 +54,27 @@ module.leaveChat = function (user) {
 //Write messages
 //We might have to use the EventListener method
 
+// let messages = []
+// function ChatMessage (message, user, date){
+//     this.message = message
+//     this.user = user
+//     this.date = new Date()
+//   }
+//  messages.push(ChatMessage)
+//  console.log('You wrote', ChatMessage)
+//
+// }
 let messages = []
 function ChatMessage (message, user, date){
     this.message = message
     this.user = user
     this.date = new Date()
   }
- messages.push(ChatMessage)
 
+module.postMessage = function (ChatMessage){
+  messages.push(ChatMessage)
+  console.log('You wrote: ', ChatMessage)
 }
-//search within messages
-
-
 
 return module
 })();
