@@ -15,7 +15,7 @@ Censored should still be saved
 var Chat = (function () {
  // Users
 
- let users = []
+let users = []
 
 let module = {}
 module.joinChat = function (user) {
@@ -33,6 +33,7 @@ module.joinChat = function (user) {
   } else {
   //Add user to connected users
     users.push(user)
+    console.log('User joined Chat: ', user)
   }
 }
 
@@ -47,6 +48,7 @@ module.leaveChat = function (user) {
     }
   }
   if (userAlreadyConnected){
+    console.log('User left chat: ', user)
     users.splice(user)
   }
 }
