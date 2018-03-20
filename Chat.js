@@ -52,22 +52,18 @@ module.leaveChat = function (user) {
     }
   }
 
-
-
 //Write messages
 //We might have to use the EventListener method
 
 let messages = []
 function ChatMessage (message, user, date){
-    message: message,
-    user: user,
-    date: new Date
+    this.message = message
+    this.user = user
+    this.date = new Date()
   }
- module.postMessage = function (message){
+ messages.push(ChatMessage)
 
 }
-
-
 //search within messages
 
 
