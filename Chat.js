@@ -78,15 +78,17 @@ module.postMessage = function (ChatMessage){
 
 //search in messages
 
-let keyword = []
-let results = messages.filter(m => {
+//let keyword = []
     module.searchMessage = function (searchMessage) {
+      let results = messages.filter(m => {
+
+
       // does this current message match what O'm looking for
       /* direct keyword:
         return m.message ==keyword
       */
 
-        return searchMessage.message.indexOf(keyword) !== -1
+        return searchMessage.message.indexOf(searchMessage) !== -1
       })
       console.log('Message results = ', results)
     }
