@@ -4,23 +4,35 @@
     <meta charset="utf-8">
     <title>Chat Program</title>
     <h1>Chat</h1>
-    <p>
+    <p> Please enter username </p>
+    <div class="container-fluid">
+      <div class="row main">
+        <div class="col-9" id="chat-window">
+        <form id="formID" class="myForm" action="Index.html" method="post">
+        <input id="textID" type="text" name="Add messages" value="">
+        <input id="submitID" type="submit"name="submitButton" value="Submit">
+    </div>
+
+    <p> Enter message </p>
       <div>
         <form id="formID" class="myForm" action="Index.html" method="post">
         <input id="textID" type="text" name="Add messages" value="">
         <input id="submitID" type="submit"name="submitButton" value="Submit">
     </div>
-    </p>
+
+    <p> Search in message </p>
+      <div>
+        <form id="formID" class="myForm" action="Index.html" method="post">
+        <input id="textID" type="text" name="Add messages" value="">
+        <input id="submitID" type="submit"name="submitButton" value="Search">
+    </div>
 
 
   </head>
   <body>
-    <script type="text/javascript" src="Chat.js">
+    <script type="text/javascript" src="Chat.js"> </script>
+    <script src="Stylesheet.css"> </script>
+//add EventListener here
+//Stylesheet.css not applied for some reason?
 
-    </script>
-
-
-
-
-  </body>
 </html>
