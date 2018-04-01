@@ -70,11 +70,27 @@ function ChatMessage (message, user, date){
     this.date = new Date()
   }
 
-module.postMessage = function (ChatMessage){
-  messages.push(ChatMessage)
-  console.log('You wrote: ', ChatMessage)
-}
 
+let censoredWords = ["faggot", "nigger"]
+let censoredMessages = []
+module.postMessage = function (ChatMessage){
+
+  let messageCensored = false
+  for(let i=0; i < censoredWords.length; i++ ){
+    if (ChatMessage.indexOf(censoredWords[i]) !== -1){
+        messageCensored = true
+      }
+    }
+
+    if (messageCensored){
+        censoredMessages.push (ChatMessage)
+        console.log('Message was censored: ', ChatMessage)
+    } else {
+        messages.push(ChatMessage)
+        console.log('You wrote: ', ChatMessage)
+
+  }
+}
 
 //search in messages
 
