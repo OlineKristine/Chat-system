@@ -80,7 +80,7 @@ module.postMessage = function (ChatMessage){
 
 //let keyword = []
     module.searchMessage = function (searchMessage) {
-      let results = messages.filter(m => {
+      let results = messages.filter(theMessage => {
 
 
       // does this current message match what O'm looking for
@@ -88,7 +88,7 @@ module.postMessage = function (ChatMessage){
         return m.message ==keyword
       */
 
-        return searchMessage.message.indexOf(searchMessage) !== -1
+        return theMessage.message.indexOf(searchMessage) !== -1
       })
       console.log('Message results = ', results)
     }
