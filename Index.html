@@ -8,31 +8,86 @@
     <div class="container-fluid">
       <div class="row main">
         <div class="col-9" id="chat-window">
-        <form id="formID" class="myForm" action="Index.html" method="post">
-        <input id="textID" type="text" name="Add messages" value="">
-        <input id="submitID" type="submit"name="submitButton" value="Submit">
+        <form id="userFormID" class="myForm" action="Index.html" method="post">
+        <input id="userTextID" type="text" name="Add messages" value="">
+        <input id="userSubmitID" type="submit"name="submitButton" value="Submit">
     </div>
+
+    <p2>List of current users </p2>
+    <ul id = "userNameList">
+      <li>Rina</li>
+      <li>Sara</li>
+      <li>Oline</li>
+    </ul>
 
     <p> Enter message </p>
       <div>
-        <form id="formID" class="myForm" action="Index.html" method="post">
-        <input id="textID" type="text" name="Add messages" value="">
-        <input id="submitID" type="submit"name="submitButton" value="Submit">
+        <form id="messageFormID" class="myForm" action="Index.html" method="post">
+        <input id="messageTextID" type="text" name="Add messages" value="">
+        <input id="messageSubmitID" type="submit"name="submitButton" value="Submit">
     </div>
 
     <p> Search in message </p>
       <div>
-        <form id="formID" class="myForm" action="Index.html" method="post">
-        <input id="textID" type="text" name="Add messages" value="">
-        <input id="submitID" type="submit"name="submitButton" value="Search">
+        <form id="searchFormID" class="myForm" action="Index.html" method="post">
+        <input id="searchTextID" type="text" name="Add messages" value="">
+        <input id="searchSubmitID" type="submit"name="submitButton" value="Search">
     </div>
 
 
   </head>
   <body>
     <script type="text/javascript" src="Chat.js"> </script>
-    <script src="Stylesheet.css"> </script>
-//add EventListener here
-//Stylesheet.css not applied for some reason?
+    <script src="Stylesheet.css">
+    // the CSS not applied for some reason
+    </script>
+
+    <script>
+    //first we select our form, in this case our user form
+    let userForm = document.querySelector('#userFormID')
+
+    //we add EventListener to override default behaviour
+    userForm.addEventListener('submit', event => {
+      event.preventDefault()
+
+    //selecting input field
+      let inputField = document.querySelector('#userTextID')
+
+    // disable further input (probably not needed)
+    //  inputField.disabled = true
+
+    // selecting submit button
+      let submitButton = document.querySelector('#userSubmitID')
+
+    // disable further input (probably not needed)
+    //  submitButton.disabled = true
+
+
+    //can we add a new li item (username) with no list? --> no, we need a lsit with usernames
+
+    // Create new <li> element
+      let newUserNameListElement = document.createElement('li')
+
+      // Set the text of the <li> element
+      newUserNameListElement.innerHTML = inputField.value
+
+      // Select the list we want to add our new username to
+      let userNameList = document.querySelector('#userNameList')
+
+      // Add new username to the list
+      userNameList.appendChild(newUserNameListElement)
+
+      // Delete content of the input field
+      inputField.value = ''
+
+      // Re-enable the button and input field
+      // button.disabled = false
+      // input.disabled = false
+
+    })
+//we need to do the same for messages later
+
+    </script>
+
 
 </html>
