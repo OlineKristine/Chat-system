@@ -71,7 +71,7 @@ function ChatMessage (message, user, date){
   }
 
 //censoring messages before posting
-let censoredWords = ["faggot", "nigger"]
+let censoredWords = ["fuck", "bastard"]
 let censoredMessages = []
 module.postMessage = function (ChatMessage){
 
@@ -114,3 +114,20 @@ module.postMessage = function (ChatMessage){
 
 return module
 })();
+
+let form = document.querySelector('#message-form')
+form.addEventListener('submit', function(event){
+  event.preventDefault()
+
+  let input = document.querySelector('#post-new-message')
+  if (input.value != ''){
+    Chat.postMessage(input.value)
+    let newListElement = document.createElement('li')
+    newListElement.innerHTML = input.value
+    let messageList = document.querySelector('#message-list')
+    messageList.appendChild(newListElement)
+}
+
+  input.value=''
+
+})

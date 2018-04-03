@@ -104,7 +104,7 @@ regular messages)-->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <script type="text/javascript" src="Chat.js"> </script>
+  <link rel="stylesheet" type="text/css" href="Stylesheet.css" >
   <title> Chat-thing </title>
 </head>
 <body>
@@ -127,26 +127,7 @@ regular messages)-->
   </div>
 </div>
 
+<script type="text/javascript" src="Chat.js"> </script>
 
-<!-- Do we add the event here or in the js?-->
-
-<script>
-let form = document.querySelector('#message-form')
-form.addEventListener('submit', function(event){
-  event.preventDefault()
-
-  let input = document.querySelector('#post-new-message')
-  if (input.value != ''){
-    Chat.postMessage(input.value)
-    let newListElement = document.createElement('li')
-    newListElement.innerHTML = input.value
-    let messageList = document.querySelector('#message-list')
-    messageList.appendChild(newListElement)
-}
-
-  input.value=''
-
-})
-</script>
 </body>
 </html>
