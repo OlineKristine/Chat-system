@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html>
   <head>
@@ -63,7 +64,7 @@
     //  submitButton.disabled = true
 
 
-    //can we add a new li item (username) with no list? --> no, we need a lsit with usernames
+    //can we add a new li item (username) with no list?  no, we need a lsit with usernames
 
     // Create new <li> element
       let newUserNameListElement = document.createElement('li')
@@ -90,4 +91,62 @@
     </script>
 
 
+</html>-->
+<!--
+A window/box to display chat messages in
+A list to display connected user on
+A field to input chat messages in
+A field to search for messages in
+A place to display the search results (you could reuse you main view for
+regular messages)-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="Chat.js"> </script>
+  <title> Chat-thing </title>
+</head>
+<body>
+
+<h1> Welcome to the Chat </h1>
+
+<div class="Messages">
+  <div id="message-window">
+    <ul id="message-list">
+      <li>Please be considerate in the Chat</li>
+    </ul>
+  </div>
+
+  <div id="post-message">
+    <h2> </h2>
+    <form id="message-form">
+      <input type="text" placeholder="Please enter your message here..." id="post-new-message">
+      <input type="submit" value="Send Message">
+    </form>
+  </div>
+</div>
+
+
+<!-- Do we add the event here or in the js?-->
+
+<script>
+let form = document.querySelector('#message-form')
+form.addEventListener('submit', function(event){
+  event.preventDefault()
+
+  let input = document.querySelector('#post-new-message')
+  if (input.value != ''){
+    Chat.postMessage(input.value)
+    let newListElement = document.createElement('li')
+    newListElement.innerHTML = input.value
+    let messageList = document.querySelector('#message-list')
+    messageList.appendChild(newListElement)
+}
+
+  input.value=''
+
+})
+</script>
+</body>
 </html>

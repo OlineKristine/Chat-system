@@ -70,7 +70,7 @@ function ChatMessage (message, user, date){
     this.date = new Date()
   }
 
-
+//censoring messages before posting
 let censoredWords = ["faggot", "nigger"]
 let censoredMessages = []
 module.postMessage = function (ChatMessage){
@@ -91,6 +91,7 @@ module.postMessage = function (ChatMessage){
 
   }
 }
+
 
 //search in messages
 
