@@ -115,6 +115,8 @@ module.postMessage = function (ChatMessage){
 return module
 })();
 
+//so maybe if we divided the censoring and the posting of messages into to and then said in this one,
+//if it contains censored words it is Chat.censorMessage() and if not it is Chat.postMessage() (as the last part is now)??
 let form = document.querySelector('#message-form')
 form.addEventListener('submit', function(event){
   event.preventDefault()
@@ -131,3 +133,4 @@ form.addEventListener('submit', function(event){
   input.value=''
 
 })
+
