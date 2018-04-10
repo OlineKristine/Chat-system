@@ -31,6 +31,7 @@ module.joinChat = function (user) {
   } else {
   //Add user to connected users
       users.push(user)
+      //ADD EVENTLISTENER-THING TO MAKE A LIST OF CONNECTED USERS HERE!
       console.log('User joined Chat: ', user)
   }
 }
@@ -64,30 +65,37 @@ module.leaveChat = function (user) {
 //
 // }
 let messages = []
-function ChatMessage (message, user, date){
-    this.message = message
-    this.user = user
-    this.date = new Date()
-  }
+
+
+
 
 //censoring messages before posting
+
+
+
 let censoredWords = ["fuck", "bastard"]
 let censoredMessages = []
-module.postMessage = function (ChatMessage){
+
+module.postMessage = function (chatMessage){
 
   let messageCensored = false
   for(let i=0; i < censoredWords.length; i++ ){
-    if (ChatMessage.indexOf(censoredWords[i]) !== -1){
+    if (chatMessage.message.indexOf(censoredWords[i]) !== -1){
         messageCensored = true
       }
     }
 
     if (messageCensored){
-        censoredMessages.push (ChatMessage)
-        console.log('Message was censored: ', ChatMessage)
+
+        console.log('Message was censored: ', chatMessage)
     } else {
-        messages.push(ChatMessage)
-        console.log('You wrote: ', ChatMessage)
+        messages.push(chatMessage)
+        let newListElement = document.createElement('li')
+        newListElement.innerHTML = chatMessage.message
+        let messageList = document.querySelector('#message-list')
+        messageList.appendChild(newListElement)
+
+        console.log('You wrote: ', chatMessage)
 
   }
 }
@@ -115,6 +123,12 @@ module.postMessage = function (ChatMessage){
 return module
 })();
 
+function ChatMessage (message, user){
+    this.message = message
+    this.user = user
+    this.date = new Date()
+}
+
 //so maybe if we divided the censoring and the posting of messages into to and then said in this one,
 //if it contains censored words it is Chat.censorMessage() and if not it is Chat.postMessage() (as the last part is now)??
 let form = document.querySelector('#message-form')
@@ -123,14 +137,10 @@ form.addEventListener('submit', function(event){
 
   let input = document.querySelector('#post-new-message')
   if (input.value != ''){
-    Chat.postMessage(input.value)
-    let newListElement = document.createElement('li')
-    newListElement.innerHTML = input.value
-    let messageList = document.querySelector('#message-list')
-    messageList.appendChild(newListElement)
+    Chat.postMessage(new ChatMessage(input.value, 'testingUser'))
+
 }
 
   input.value=''
 
 })
-
