@@ -52,26 +52,10 @@ module.leaveChat = function (user) {
     }
   }
 
-//Write messages
+//Messages
 
-// let messages = []
-// function ChatMessage (message, user, date){
-//     this.message = message
-//     this.user = user
-//     this.date = new Date()
-//   }
-//  messages.push(ChatMessage)
-//  console.log('You wrote', ChatMessage)
-//
-// }
 let messages = []
-
-
-
-
 //censoring messages before posting
-
-
 
 let censoredWords = ["fuck", "bastard"]
 let censoredMessages = []
@@ -123,21 +107,19 @@ module.postMessage = function (chatMessage){
 return module
 })();
 
-function ChatMessage (message, user){
+function chatMessage (message, user){
     this.message = message
     this.user = user
     this.date = new Date()
 }
 
-//so maybe if we divided the censoring and the posting of messages into to and then said in this one,
-//if it contains censored words it is Chat.censorMessage() and if not it is Chat.postMessage() (as the last part is now)??
 let form = document.querySelector('#message-form')
 form.addEventListener('submit', function(event){
   event.preventDefault()
 
   let input = document.querySelector('#post-new-message')
   if (input.value != ''){
-    Chat.postMessage(new ChatMessage(input.value, 'testingUser'))
+    Chat.postMessage(new chatMessage(input.value, 'testingUser'))
 
 }
 
