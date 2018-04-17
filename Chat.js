@@ -100,12 +100,21 @@ module.postMessage = function (chatMessage){
         return theMessage.message.indexOf(searchMessage) !== -1
       })
       console.log('Message results = ', results)
+      let searchResultsDisplay = document.querySelector('#result-list')
+      let html = ''
+      results.forEach(result => {
+        html += `<li>${result.message}</li>`
+      })
+      searchResultsDisplay.innerHTML = html
     }
+
+   
 
 
 
 return module
 })();
+
 
 function chatMessage (message, user){
     this.message = message
@@ -125,4 +134,15 @@ form.addEventListener('submit', function(event){
 
   input.value=''
 
+})
+
+let searchForm = document.querySelector('#search-message-form')
+searchForm.addEventListener('submit', function(searchEvent){
+  searchEvent.preventDefault()
+  
+  let searchInput = document.querySelector('#search-messages')
+  if (searchInput.value != ''){
+    Chat.searchMessage(searchInput.value)
+  }
+  searchInput.value = ''
 })
