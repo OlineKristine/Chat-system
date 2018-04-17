@@ -36,6 +36,9 @@ module.joinChat = function (user) {
   }
 }
 
+module.displayUsers = function(user){
+  
+}
 // how to delete user
 module.leaveChat = function (user) {
   console.log('User is trying to leave: ' , user)

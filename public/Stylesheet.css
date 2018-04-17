@@ -1,0 +1,24 @@
+.main {
+  height: 90vh;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; margin-left: -1em; }
+  to { opacity: 1; margin-left: 0; }
+}
+
+.chat-message {
+  animation: fadeIn .3s;
+}
+
+#chat-window, #search-window {
+  overflow: auto;
+}
+
+.messageInput {
+  height: 10vh;
+}
+
+.hidden {
+  display: none;
+}
